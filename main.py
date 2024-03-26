@@ -54,7 +54,7 @@ fibers.reset_index(drop=True, inplace=True)
 print("Shape of fibers database:", fibers.shape)
 
 # Load alignment scores
-alignment_scores = np.loadtxt('RBP_alignment_scores.txt')
+alignment_scores = np.loadtxt('RBP_alignmentscores.txt')
 np.fill_diagonal(alignment_scores, 0)
 
 # Remove duplicates from fibers, dummies and alignment_scores
