@@ -538,9 +538,9 @@ def NestedGroupKFold(model, X, y, parameter_grid, groups, class_weights, scorer=
         y_pred = tuned_model.predict(X_test)
 
         # evaluate performance (factoring in class imbalance)
-        recall_list = list(recall_score(y_test, y_pred, labels=labels, average=None))
-        precision_list = list(precision_score(y_test, y_pred, labels=labels, average=None))
-        f1_list = list(f1_score(y_test, y_pred, labels=labels, average=None))
+        recall_list = list(recall_score(y_test, y_pred, labels=labels, average=None, zero_division=0))
+        precision_list = list(precision_score(y_test, y_pred, labels=labels, average=None, zero_division=0))
+        f1_list = list(f1_score(y_test, y_pred, labels=labels, average=None, zero_division=0))
         accuracy = accuracy_score(y_test, y_pred)
         recall = sum([a * b for a, b in zip(recall_list, class_weights)]) / sum(class_weights)
         precision = sum([a * b for a, b in zip(precision_list, class_weights)]) / sum(class_weights)
